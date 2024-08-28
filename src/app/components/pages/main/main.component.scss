@@ -1,0 +1,51 @@
+.ui-accordion .ui-accordion-header {
+  display: block;
+  cursor: pointer;
+  position: relative;
+  padding: .5em .5em .5em .7em;
+  font-size: 100%;
+}
+
+.ui-accordion .ui-accordion-header:after {
+  content: '';
+  background: url(../../../../assets/images/icon2.png) 50% 50% no-repeat;
+  position: absolute;
+  top: 20px;
+  left: 95%;
+  display: inline-block;
+  width: 20px;
+  height: 13px;
+}
+.ui-accordion .ui-accordion-header-active:after {
+  content: '';
+  background: url(../../../../assets/images/icon.png) 50% 50% no-repeat;
+}
+
+.iu-accordion-content {
+  height: 68px;
+  line-height: 35px;
+  padding-left: 18px;
+}
+
+.popup {
+  display: none;
+  background: #423c3cb0;
+  position: fixed;
+}
+
+.popup.show {
+  display: block;
+}
+
+.popup-text {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.popup-button {
+  border-radius: 5px;
+  border: 1px solid #7f7fff;
+  display: block;
+  margin: 28px auto 0;
+  padding: 5px;
+}

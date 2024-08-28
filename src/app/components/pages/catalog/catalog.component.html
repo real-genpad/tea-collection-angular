@@ -1,0 +1,21 @@
+<main class="p-3">
+  <div class="container">
+    <h2 class="text-center mb-4">Наши чайные коллекции</h2>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 align-items-stretch g-3 mb-5">
+      <div class="col" *ngFor="let product of catalog">
+        <div class="card h-100">
+          <img src="{{product.image}}" class="img-fluid card-img-top" width="100%" height="180px"
+               alt="tea">
+          <div class="card-body">
+            <h5 class="card-title">{{product.title}}</h5>
+            <p class="card-text">{{product.description}}я</p>
+          </div>
+          <div class="card-footer">
+            <p class="card-text">Цена {{product.price}} руб.</p>
+            <a [routerLink]="['/product', product.id]" class="btn btn-primary">Подробнее</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

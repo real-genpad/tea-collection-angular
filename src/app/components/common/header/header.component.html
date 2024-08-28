@@ -1,0 +1,28 @@
+<header>
+  <div class="container-fluid bg-light p-2">
+    <nav class="navbar navbar-expand-md">
+      <a routerLink="/" class="navbar-brand mb-2 mb-sm-0 m-auto m-sm-0 me-2">Logo</a>
+      <button class="navbar-toggler mb-2 mb-sm-0 m-auto m-sm-0" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarScroll"
+              aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarScroll">
+        <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+          <li>
+            <a routerLink="/" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Главная</a>
+          </li>
+          <li>
+            <a routerLink="/catalog" class="nav-link" routerLinkActive="active">Каталог</a>
+          </li>
+        </ul>
+      </div>
+      <form class="d-flex me-lg-3 mb-2 mb-sm-0 m-auto m-sm-0">
+        <input class="form-control me-2" type="search" placeholder="Поиск чая">
+        <button class="btn border border-primary p-2 ps-4 pe-4 fs-6 text-primary" type="submit">
+          Найти
+        </button>
+      </form>
+    </nav>
+  </div>
+</header>

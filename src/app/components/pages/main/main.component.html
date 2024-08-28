@@ -1,0 +1,54 @@
+<main class="p-3">
+  <div class="container">
+    <div class="single-item mb-5">
+      <img src="assets/images/main1.png" class="img-fluid" alt="lemon tea">
+    </div>
+
+    <h2 class="text-center mb-4">Ответы на часто задаваемые вопросы</h2>
+    <div class="col-lg-8 col-sm-12 mx-auto mb-5" id="accordion">
+      <h3 class="bg-primary text-white p-3 border border-0 rounded">Собираете ли вы подарочные боксы?</h3>
+      <div class="iu-accordion-content border border-0">
+        <p class="m-0">Да, у нас есть такая услуга. Мы можем собрать подарочный бокс на любой вкус, объем и
+          стоимость!</p>
+      </div>
+      <h3 class="bg-primary text-white p-3 border border-0 rounded">Сколько у вас разновидностей чая?</h3>
+      <div class="iu-accordion-content border border-0">
+        <p class="m-0">
+          12
+        </p>
+      </div>
+      <h3 class="bg-primary text-white p-3 border border-0 rounded">В какой срок осуществляется доставка?</h3>
+      <div class="iu-accordion-content border border-0">
+        <p class="m-0">
+          3 - 5 дней
+        </p>
+      </div>
+      <h3 class="bg-primary text-white p-3 border border-0 rounded">У вас обновляется ассортимент?</h3>
+      <div class="iu-accordion-content border border-0">
+        <p class="m-0">
+          Да
+        </p>
+      </div>
+      <h3 class="bg-primary text-white p-3 border border-0 rounded">Какого объема у вас пачки чая?</h3>
+      <div class="iu-accordion-content border border-0">
+        <p class="m-0">
+          200 грамм
+        </p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div class="modal fade popup" [ngClass]="{'show': popup}" aria-hidden="true" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body">
+        <span class="popup-text">Посмотрите наши чайные коллекции</span>
+      </div>
+      <div class="modal-footer">
+        <a type="button" routerLink="/catalog" class="btn popup-button">Смотреть</a>
+        <button type="button" class="btn popup-button" (click)="popupHide()">Отмена</button>
+      </div>
+    </div>
+  </div>
+</div>
