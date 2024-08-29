@@ -1,9 +1,11 @@
 input.ng-invalid.ng-dirty,
 input.ng-invalid.ng-touched {
+  border-color: red;
   color: red;
 }
 
-textarea.ng-invalid.ng-dirty,
-textarea.ng-invalid.ng-touched {
-  color: red;
+.order-success {
+  text-align: center;
+  font-size: 30px;
+  height: 400px;
 }

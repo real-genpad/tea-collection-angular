@@ -1,7 +1,7 @@
 <main class="p-3">
   <div class="container">
     <h2 class="text-center mb-4">Сделать заказ</h2>
-    <form [formGroup]="orderForm" class="row g-3 col-lg-6 mx-auto">
+    <form [formGroup]="orderForm" *ngIf="!showSuccessMessage" class="row g-3 col-lg-6 mx-auto">
       <div class="col-md-12">
         <label for="product" class="form-label">Товар</label>
         <input type="text" class="form-control" id="product" formControlName="product" readonly>
@@ -27,7 +27,7 @@
 
       <div class="col-md-4">
         <label for="lastname" class="form-label">Фамилия</label>
-        <input type="text" class="form-control" id="lastname" formControlName="lastname">
+        <input type="text" class="form-control" id="lastname" formControlName="last_name">
         <div *ngIf="lastname?.invalid && (lastname?.dirty || lastname?.touched)">
           <div class="text-danger" *ngIf="lastname?.errors?.['required']">
             Напишите вашу фамилию

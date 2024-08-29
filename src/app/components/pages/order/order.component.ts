@@ -13,7 +13,7 @@ export class OrderComponent implements OnInit {
     product: new FormControl(''),
     comment: new FormControl(''),
     name: new FormControl('', [Validators.required, Validators.pattern(/^[а-яА-Я]+$/)]),
-    lastname: new FormControl('', [Validators.required, Validators.pattern(/^[а-яА-Я]+$/)]),
+    last_name: new FormControl('', [Validators.required, Validators.pattern(/^[а-яА-Я]+$/)]),
     phone: new FormControl('', [Validators.required, Validators.pattern(/^\+?\d{11}$/)]),
     country: new FormControl('', [Validators.required]),
     zip: new FormControl('', [Validators.required]),
@@ -21,7 +21,7 @@ export class OrderComponent implements OnInit {
   })
 
   get name() {return this.orderForm.get('name');}
-  get lastname() {return this.orderForm.get('lastname');}
+  get lastname() {return this.orderForm.get('last_name');}
   get phone() {return this.orderForm.get('phone');}
   get country() {return this.orderForm.get('country');}
   get zip() {return this.orderForm.get('zip');}
@@ -41,40 +41,21 @@ export class OrderComponent implements OnInit {
     })
   }
 
-  createOrder() {
-    if (!this.orderForm.get('name')?.value) {
-      alert('Введите имя');
-      return
+  createOrder(): void {
+    this.orderForm.markAllAsTouched();
+    this.orderForm.updateValueAndValidity();
+    if(this.orderForm.valid) {
+      const orderData = this.orderForm.getRawValue();
+      this.orderService.createOrder(orderData)
+        .subscribe(response => {
+          if(response.success === 1){
+            this.showSuccessMessage = true;
+          } else {
+            console.error('Ошибка:', response.message);
+            this.router.navigate(['/']);
+          }
+        })
     }
-    if (!this.orderForm.get('lastname')?.value) {
-      alert('Введите фамилию');
-      return
-    }
-    if (!this.orderForm.get('phone')?.value) {
-      alert('Введите номер телефона');
-      return
-    }
-    if (!this.orderForm.get('country')?.value) {
-      alert('Введите страну');
-      return
-    }
-    if (!this.orderForm.get('zip')?.value) {
-      alert('Введите индекс');
-      return
-    }
-    if (!this.orderForm.get('address')?.value) {
-      alert('Введите адрес');
-      return
-    }
-    const orderData = this.orderForm.getRawValue();
-    this.orderService.createOrder(orderData)
-      .subscribe(response => {
-        if(response.success === 1){
-          this.showSuccessMessage = true;
-        } else {
-          console.error('Ошибка:', response.message);
-          this.router.navigate(['/']);
-        }
-      })
+
   }
 }

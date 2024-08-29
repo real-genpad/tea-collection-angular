@@ -1,5 +1,6 @@
-import {Component, OnDestroy, OnInit,} from '@angular/core';
+import {Component, ElementRef, OnDestroy, OnInit, ViewChild,} from '@angular/core';
 import {Observable, Subscriber, Subscription} from "rxjs";
+import {Modal} from "bootstrap";
 
 declare var $: any;
 
@@ -10,9 +11,10 @@ declare var $: any;
 })
 
 export class MainComponent implements OnInit, OnDestroy {
-  popup: boolean = false;
+  @ViewChild('modal', { static: true }) private modalRef!: ElementRef<HTMLElement>
   private observable: Observable<void>;
   private subscription: Subscription | null = null;
+  private modal: Modal | null = null;
   constructor() {
     this.observable = new Observable((observer: Subscriber<void>): {unsubscribe: () => void} => {
       const timeout = setTimeout((): void => {
@@ -23,9 +25,10 @@ export class MainComponent implements OnInit, OnDestroy {
     })
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.modal = new Modal(this.modalRef.nativeElement);
     this.subscription = this.observable.subscribe((): void => {
-      this.showPopup();
+      this.modal?.show();
     });
 
     $("#accordion").accordion({
@@ -34,15 +37,12 @@ export class MainComponent implements OnInit, OnDestroy {
     });
   }
 
-  showPopup(): boolean {
-    return this.popup = true;
+  closeModal(): void {
+    this.modal?.hide();
   }
 
-  popupHide(): boolean {
-    return this.popup = false;
-  }
-
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.subscription?.unsubscribe();
+    this.closeModal();
   }
 }
