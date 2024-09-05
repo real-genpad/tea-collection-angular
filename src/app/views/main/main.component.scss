@@ -8,7 +8,7 @@
 
 .ui-accordion .ui-accordion-header:after {
   content: '';
-  background: url(../../../../assets/images/icon2.png) 50% 50% no-repeat;
+  background: url(../../../assets/images/icon2.png) 50% 50% no-repeat;
   position: absolute;
   top: 20px;
   left: 95%;
@@ -18,7 +18,7 @@
 }
 .ui-accordion .ui-accordion-header-active:after {
   content: '';
-  background: url(../../../../assets/images/icon.png) 50% 50% no-repeat;
+  background: url(../../../assets/images/icon.png) 50% 50% no-repeat;
 }
 
 .iu-accordion-content {

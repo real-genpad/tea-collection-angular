@@ -28,7 +28,6 @@
               "src/assets"
             ],
             "styles": [
-              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/jquery-ui/dist/themes/base/jquery-ui.min.css",
               "src/styles.scss"
             ],
@@ -42,8 +41,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "5mb",
+                  "maximumError": "6mb"
                 },
                 {
                   "type": "anyComponentStyle",

@@ -1,37 +1,31 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/common/header/header.component';
-import { FooterComponent } from './components/common/footer/footer.component';
-import { MainComponent } from './components/pages/main/main.component';
-import { CatalogComponent } from './components/pages/catalog/catalog.component';
-import { ProductComponent } from './components/pages/product/product.component';
-import { OrderComponent } from './components/pages/order/order.component';
 import {HttpClientModule} from "@angular/common/http";
-import {ProductsService} from "./servises/products.service";
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {OrderService} from "./servises/order.service";
+import {FormsModule} from "@angular/forms";
+import {ProductsModule} from "./views/products/products.module";
+import {MainModule} from "./views/main/main.module";
+import {OrderModule} from "./views/order/order.module";
+import {SharedModule} from "./shared/shared.module";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HeaderComponent,
-    FooterComponent,
-    MainComponent,
-    CatalogComponent,
-    ProductComponent,
-    OrderComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    ProductsModule,
+    MainModule,
+    OrderModule,
+    SharedModule,
+    NgbModule,
+    AppRoutingModule
   ],
-  providers: [ProductsService, OrderService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
